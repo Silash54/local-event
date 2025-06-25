@@ -14,9 +14,9 @@ class CarouselController extends Controller
      */
     public function index()
     {
-        $carousel=Carousel::OrderBy('title','DESC')->get();
-        return view('backend.carousel.index',[
-            'carousels'=>$carousel
+        $carousel = Carousel::OrderBy('title', 'DESC')->get();
+        return view('backend.carousel.index', [
+            'carousels' => $carousel
         ]);
     }
 
@@ -70,7 +70,8 @@ class CarouselController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $carousel = Carousel::find($id);
+        return view('backend.carousel.edit', compact('carousel'));
     }
 
     /**
@@ -78,7 +79,28 @@ class CarouselController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // $validate = Validator::make(
+        //     $request->all(),
+        //     [
+        //         'image' => 'required|'
+        //     ]
+        // );
+        // if ($validate->fails()) {
+        //     return response()->json([
+        //         'status' => true,
+        //         'message' => $validate->errors()
+        //     ]);
+        // }
+        $carousel = Carousel::find($id);
+        $carousel->title=$request->title;
+         if ($request->has('image')) {
+            $file = $request->image;
+            $newName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images', $newName);
+            $carousel->image = "images/$newName";
+        }
+        $carousel->update();
+        return redirect()->route('carousel.index');
     }
 
     /**
@@ -86,6 +108,8 @@ class CarouselController extends Controller
      */
     public function destroy(string $id)
     {
-        return $id;
+        $carousel = Carousel::find($id);
+        $carousel->delete();
+        return redirect()->route('carousel.index');
     }
 }

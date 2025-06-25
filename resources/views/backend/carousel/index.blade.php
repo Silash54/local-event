@@ -1,27 +1,30 @@
 @extends('backend.layout.app')
+
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Table with hoverable rows</h5>
-            <a class="btn btn-primary" href="{{ route('carousel.create') }}">Add Carousel</a>
-            <!-- Table with hoverable rows -->
-            <table class="table table-hover">
-                @forelse ($carousels as $carousel)
+            <h5 class="card-title">Carousel</h5>
+            <a class="btn btn-primary mb-3" href="{{ route('carousel.create') }}">Add Carousel</a>
+
+            @if ($carousels->count())
+                <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Title</th>
                             <th scope="col">Image</th>
-                            <th>Actions</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($carousels as $index => $carousel)
                             <tr>
-                                <th scope="row">{{ $index++ }}</th>
+                                <th scope="row">{{ $index + 1 }}</th>
                                 <td>{{ $carousel->title }}</td>
-                                <td> <img class="img-thumbnail h-90 w-50" src="{{ $carousel->image }}" alt="img"
-                                        srcset=""></td>
+                                <td>
+                                    <img class="img-thumbnail" style="height: 90px; width: 120px;"
+                                        src="{{ asset( $carousel->image) }}" alt="img">
+                                </td>
                                 <td>
                                     <div class="btn-group" role="group">
                                         <a class="btn btn-success"
@@ -39,10 +42,10 @@
                             </tr>
                         @endforeach
                     </tbody>
-                @empty
-                    <p class="text-danger">No record found</p>
-                @endforelse
-            </table>
+                </table>
+            @else
+                <p class="text-danger">No records found.</p>
+            @endif
         </div>
     </div>
 @endsection

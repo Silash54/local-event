@@ -5,9 +5,8 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <h5 class="card-title">General Form Elements</h5>
+                    <h5 class="card-title">Create Carousel</h5>
                     <a class="btn btn-primary" href="{{ route('carousel.index') }}">Back</a>
-                    <!-- General Form Elements -->
                     <form action="{{ route('carousel.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
