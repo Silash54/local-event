@@ -92,8 +92,8 @@ class CarouselController extends Controller
         //     ]);
         // }
         $carousel = Carousel::find($id);
-        $carousel->title=$request->title;
-         if ($request->has('image')) {
+        $carousel->title = $request->title;
+        if ($request->has('image')) {
             $file = $request->image;
             $newName = time() . '.' . $file->getClientOriginalExtension();
             $file->move('images', $newName);
