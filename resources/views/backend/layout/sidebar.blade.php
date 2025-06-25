@@ -11,6 +11,12 @@
             <span>Carousel</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link " href="{{ route('categories.index') }}">
+            <i class="bi bi-grid"></i>
+            <span>Category</span>
+        </a>
+    </li>
         {{--  end  of carousel  --}}
         <li class="nav-item">
             <a class="nav-link collapsed" href="pages-register.html">
