@@ -12,6 +12,7 @@ class PageController extends Controller
     public function home()
     {
         $carousel=Carousel::OrderBy('created_at','DESC')->take(3)->get();
+        //return $carousel;
         $categories=Category::OrderBy('created_at','DESC')->take(6)->get();
         return view('home',
     [

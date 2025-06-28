@@ -17,6 +17,24 @@
             <span>Category</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link " href="{{ route('event.index') }}">
+            <i class="bi bi-grid"></i>
+            <span>Event</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " href="{{ route('gallery.index') }}">
+            <i class="bi bi-grid"></i>
+            <span>Gallery</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " href="{{ route('event.index') }}">
+            <i class="bi bi-grid"></i>
+            <span>About Us</span>
+        </a>
+    </li>
         {{--  end  of carousel  --}}
         <li class="nav-item">
             <a class="nav-link collapsed" href="pages-register.html">

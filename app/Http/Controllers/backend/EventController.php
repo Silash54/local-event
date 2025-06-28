@@ -88,7 +88,8 @@ function show(string $id)
 public function edit(string $id)
 {
     $event=Event::find($id);
-    return view('backend.Event.edit',compact('event'));
+    $categories=Category::all();
+    return view('backend.Event.edit',compact('event','categories'));
 }
 
 /**
@@ -96,7 +97,37 @@ public function edit(string $id)
  */
 public function update(Request $request, string $id)
 {
-    //
+    //return $request;
+     $validate = Validator::make($request->all(), [
+            'title' => 'required|max:30',
+            'description' => 'required|max:256',
+            'date_location' => 'required|string|max:255',
+            'price' => 'nullable|numeric|min:0',
+            'category_id' => 'required|exists:categories,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // 2MB max
+        ]);
+
+        if ($validate->fails()) {
+            return redirect()->back()->withErrors($validate)->withInput();
+        }
+
+    $event = Event::find($id);
+        $event->title = $request->title;
+        $event->description = $request->description;
+        $event->date_location = $request->date_location;
+        $event->price = $request->price;
+        $event->category_id = $request->category_id;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $newName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images', $newName);
+            $event->image = "images/$newName";
+        }
+
+        $event->save();
+        return redirect()->route('event.index')->with('success', 'Event created successfully.');
+
 }
 
 /**
