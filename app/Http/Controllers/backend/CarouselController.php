@@ -36,7 +36,7 @@ class CarouselController extends Controller
         $validate = Validator::make(
             $request->all(),
             [
-                'image' => 'required|'
+                'image' => 'required|',
             ]
         );
         if ($validate->fails()) {

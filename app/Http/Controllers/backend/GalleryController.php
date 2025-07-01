@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class GalleryController extends Controller
 {
@@ -25,7 +27,8 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('backend.gallery.create');
+        $events=Event::all();
+        return view('backend.gallery.create',compact('events'));
     }
 
     /**
@@ -33,7 +36,31 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request;
+        $validateData=Validator::make($request->all(),[
+            'image'=>'required',
+            'caption'=>'required',
+            'event_id'=>'required'
+        ]);
+        if($validateData->fails())
+        {
+            return response()->json([
+                'status'=>false,
+                'message'=>$validateData->errors()
+            ]);
+        }
+        $gallery=new Gallery();
+        $gallery->caption=$request->caption;
+        $gallery->event_id=$request->event_id;
+        if($request->has('image'))
+        {
+            $file = $request->image;
+            $newName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images', $newName);
+            $gallery->image = "images/$newName";
+        }
+        $gallery->save();
+        return redirect()->route('gallery.index')->with('success','Record save successfully');
     }
 
     /**
@@ -49,7 +76,8 @@ class GalleryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $gallery=Gallery::find($id);
+        return view('backend.gallery.edit',compact('gallery'));
     }
 
     /**
@@ -65,6 +93,8 @@ class GalleryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $gallery=Gallery::find($id);
+        $gallery->delete();
+        return redirect()->route('gallery.index')->with('success','Gallery Record Delete Successfully');
     }
 }

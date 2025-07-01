@@ -46,21 +46,23 @@
                         </div>
                 </div>
                 <div class="row mb-3">
-    <label for="category_id" class="col-sm-4 col-form-label">Category <span class="text-danger">*</span></label>
-    <div class="col-sm-8">
-        <select name="category_id" id="category_id" class="form-control">
-            <option value="">Select</option>
-            @foreach ($categories as $category)
-                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
-                    {{ $category->name }}
-                </option>
-            @endforeach
-        </select>
-        @error('category_id')
-            <small class="text-danger">{{ $message }}</small>
-        @enderror
-    </div>
-</div>
+                    <label for="category_id" class="col-sm-4 col-form-label">Category <span
+                            class="text-danger">*</span></label>
+                    <div class="col-sm-8">
+                        <select name="category_id" id="category_id" class="form-control">
+                            <option value="">Select</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}"
+                                    {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('category_id')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
 
                 <div class="row mb-3">
                     <div class="col-sm-10">

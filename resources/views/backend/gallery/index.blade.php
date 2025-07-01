@@ -3,6 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            @include('message.message')
             <h5 class="card-title">Gallery</h5>
             <a class="btn btn-primary mb-3" href="{{ route('gallery.create') }}">Add Galleries</a>
             @if ($galleries->count())
@@ -11,8 +12,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Image</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Event Title</th>
+                            <th scope="col">Caption</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -27,8 +27,8 @@
                                 <td>
                                     <div class="btn-group" role="group">
                                         <a class="btn btn-success"
-                                            href="{{ route('carousel.edit', $gallery->id) }}">Edit</a>
-                                        <form action="{{ route('carousel.destroy', $gallery->id) }}" method="POST">
+                                            href="{{ route('gallery.edit', $gallery->id) }}">Edit</a>
+                                        <form action="{{ route('gallery.destroy', $gallery->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger"
