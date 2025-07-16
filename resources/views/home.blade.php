@@ -94,7 +94,7 @@
             </div>
         </div>
         <div class="gallery-section bg-[#ff1e00]">
-            <p class="uppercase text-white text-[15px] text-center font-normal pt-6">Nepal is a beautiful country</p>
+            <p class="uppercase text-white text-[15px] text-center font-normal mt-3">Nepal is a beautiful country</p>
             <div class="container bg-[#ffffff]">
                 <h2 class="uppercase text-black-700 p-3 text-center">Explore Most Popular Uploads</h2>
                 <hr>
@@ -105,9 +105,11 @@
                         <!-- Content -->
                         <div class="p-4 flex justify-content-around items-center">
                             <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
-                            <div>
+                            <div class=" flex flex-col gap-2 items-center">
+                                <span>345</span>
                                 <a href="#">
-                                    <i class="fa-solid fa-heart text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
+                                    <i
+                                        class="fa-solid fa-heart text-sm text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
                                 </a>
                             </div>
                             </p>
@@ -120,9 +122,11 @@
                         <!-- Content -->
                         <div class="p-4 flex justify-content-around items-center">
                             <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
-                            <div>
+                            <div class=" flex flex-col gap-2 items-center">
+                                <span>345</span>
                                 <a href="#">
-                                    <i class="fa-solid fa-heart text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
+                                    <i
+                                        class="fa-solid fa-heart text-sm text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
                                 </a>
                             </div>
                         </div>
@@ -135,7 +139,8 @@
                             <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
                             <div>
                                 <a href="#">
-                                    <i class="fa-solid fa-heart text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
+                                    <i
+                                        class="fa-solid fa-heart text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
                                 </a>
                             </div>
                         </div>
@@ -146,22 +151,32 @@
                         <!-- Content -->
                         <div class="p-4 flex justify-content-around items-center">
                             <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
-                            <div>
+                            <div class=" flex flex-col gap-2 items-center">
+                                <span>345</span>
                                 <a href="#">
-                                    <i class="fa-solid fa-heart text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
+                                    <i
+                                        class="fa-solid fa-heart text-sm text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="gallery-footer bg-[#99241c] text-white mt-2">
-                <h2 class="uppercase  text-center ">Start Your  Journey with Us</h2>
-                <p class="text-center">Download Over a millions of photos</p>
+                    <h2 class="uppercase  text-center ">Start Your Journey with Us</h2>
+                    <p class="text-center">Download Over a millions of photos</p>
+                </div>
             </div>
-            </div>
-            
         </div>
-
+        <div class="about-section main-container">
+            <h2 class="text-center">About Us</h2>
+            <hr class="h-2 w-30 text-center m-auto">
+            <div class="about flex justify-between items-center">
+                <div class="about-content">
+                    <h3>Meet Our team of Organizer</h3>
+                <p>To be the company our customer want to us.We conduct different types of events.</p>
+                </div>
+                <img class="h-70 w-70" src="{{ asset('front/assets/images/arrowbow.jpg') }}" alt="img" srcset="">
+            </div>
+        </div>
     </div>
-
 @endsection
