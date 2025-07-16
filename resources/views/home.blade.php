@@ -93,36 +93,21 @@
                 @endif
             </div>
         </div>
-        <div class="gallery-section bg-[#ff1e00]">
+        <div class="gallery-section bg-[#ff1e22]">
             <p class="uppercase text-white text-[15px] text-center font-normal mt-3">Nepal is a beautiful country</p>
-            <div class="container bg-[#ffffff]">
+            <div class="container mx-auto px-4 bg-white">
                 <h2 class="uppercase text-black-700 p-3 text-center">Explore Most Popular Uploads</h2>
                 <hr>
-                <div class="image-section grid grid-cols-3 gap-2 place-items-center justify-center items-center">
-                    <div class="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white relative">
-                        <!-- Image -->
-                        <img class="h-70 w-2/2 rounded-md shadow-lg " src="/images/1751032036.jpg" alt="">
-                        <!-- Content -->
-                        <div class="p-4 flex justify-content-around items-center">
+                <!-- Responsive Grid -->
+                <div
+                    class="image-section grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 place-items-center justify-center items-center py-4">
+                    <!-- Card Start -->
+                    <div class="max-w-xs w-full rounded-2xl overflow-hidden shadow-lg bg-white">
+                        <img class="h-60 w-full object-cover rounded-md shadow-lg" src="{{ asset('images/1751030578.jpg') }}"
+                            alt="">
+                        <div class="p-4 flex justify-between items-center">
                             <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
-                            <div class=" flex flex-col gap-2 items-center">
-                                <span>345</span>
-                                <a href="#">
-                                    <i
-                                        class="fa-solid fa-heart text-sm text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
-                                </a>
-                            </div>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white relative">
-                        <!-- Image -->
-                        <img class="h-70 w-2/2 rounded-md shadow-lg " src="/images/1751030558.jpg" alt="">
-                        <!-- Heart Icon -->
-                        <!-- Content -->
-                        <div class="p-4 flex justify-content-around items-center">
-                            <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
-                            <div class=" flex flex-col gap-2 items-center">
+                            <div class="flex flex-col gap-1 items-center">
                                 <span>345</span>
                                 <a href="#">
                                     <i
@@ -131,11 +116,25 @@
                             </div>
                         </div>
                     </div>
-                    <div class="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white relative">
-                        <!-- Image -->
-                        <img class="h-70 w-2/2 rounded-md shadow-lg " src="/images/1751032036.jpg" alt="">
-                        <!-- Content -->
-                        <div class="p-4 flex justify-content-around items-center">
+                    <!-- Repeat for other cards -->
+                    <div class="max-w-xs w-full rounded-2xl overflow-hidden shadow-lg bg-white">
+                        <img class="h-60 w-full object-cover rounded-md shadow-lg" src="/images/1751030558.jpg"
+                            alt="">
+                        <div class="p-4 flex justify-between items-center">
+                            <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
+                            <div class="flex flex-col gap-1 items-center">
+                                <span>345</span>
+                                <a href="#">
+                                    <i
+                                        class="fa-solid fa-heart text-sm text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="max-w-xs w-full rounded-2xl overflow-hidden shadow-lg bg-white">
+                        <img class="h-60 w-full object-cover rounded-md shadow-lg" src="/images/1751032036.jpg"
+                            alt="">
+                        <div class="p-4 flex justify-between items-center">
                             <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
                             <div>
                                 <a href="#">
@@ -145,13 +144,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white relative">
-                        <!-- Image -->
-                        <img class="h-70 w-2/2 rounded-md shadow-lg " src="/images/1751032036.jpg" alt="">
-                        <!-- Content -->
-                        <div class="p-4 flex justify-content-around items-center">
+                    <div class="max-w-xs w-full rounded-2xl overflow-hidden shadow-lg bg-white">
+                        <img class="h-60 w-full object-cover rounded-md shadow-lg" src="/images/1751032036.jpg"
+                            alt="">
+                        <div class="p-4 flex justify-between items-center">
                             <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
-                            <div class=" flex flex-col gap-2 items-center">
+                            <div class="flex flex-col gap-1 items-center">
                                 <span>345</span>
                                 <a href="#">
                                     <i
@@ -160,22 +158,65 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Card End -->
                 </div>
-                <div class="gallery-footer bg-[#99241c] text-white mt-2">
-                    <h2 class="uppercase  text-center ">Start Your Journey with Us</h2>
-                    <p class="text-center">Download Over a millions of photos</p>
+
+                <!-- Footer -->
+                <div class="gallery-footer bg-[#99241c] text-white mt-4 py-4">
+                    <h2 class="uppercase text-center text-lg">Start Your Journey with Us</h2>
+                    <p class="text-center">Download Over a Millions of Photos</p>
                 </div>
             </div>
         </div>
-        <div class="about-section main-container">
-            <h2 class="text-center">About Us</h2>
-            <hr class="h-2 w-30 text-center m-auto">
-            <div class="about flex justify-between items-center">
-                <div class="about-content">
-                    <h3>Meet Our team of Organizer</h3>
-                <p>To be the company our customer want to us.We conduct different types of events.</p>
+        <div class="about-section main-container px-4 py-8">
+            <h2 class="text-center text-2xl font-bold">About Us</h2>
+            <hr class="h-1 w-24 bg-black mx-auto my-4">
+
+            <!-- Responsive Flex -->
+            <div class="about flex flex-col md:flex-row justify-between items-center gap-6">
+                <!-- Image on top in small devices -->
+                <img class="w-full max-w-sm h-auto rounded-md shadow-md"
+                    src="{{ asset('front/assets/images/arrowbow.jpg') }}" alt="img">
+
+                <!-- Text content -->
+                <div class="about-content text-center md:text-left">
+                    <h3 class="text-xl font-semibold mb-2">Meet Our Team of Organizers</h3>
+                    <p class="text-gray-700">To be the company our customers want us to be. We conduct different types of
+                        events.</p>
                 </div>
-                <img class="h-70 w-70" src="{{ asset('front/assets/images/arrowbow.jpg') }}" alt="img" srcset="">
+            </div>
+        </div>
+        <div class="contact-us main-container max-w-2xl mx-auto px-4 py-8">
+            <!-- Header -->
+            <h3 class="text-3xl font-bold text-center uppercase text-white bg-[#ff1e00] py-4 rounded-t-lg shadow-md">
+                Contact Us
+            </h3>
+
+            <!-- Form Container -->
+            <div class="bg-white p-6 shadow-md rounded-b-lg">
+                <form action="#" method="POST" class="space-y-5">
+                    <!-- Subject Field -->
+                    <div>
+                        <label for="subject" class="block mb-2 text-sm font-medium text-gray-700">Subject</label>
+                        <input type="text" name="subject" id="subject" placeholder="Enter subject"
+                            class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-[#ff1e00] focus:border-[#ff1e00] focus:outline-none">
+                    </div>
+
+                    <!-- Message Field -->
+                    <div>
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-700">Your Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Write your thoughts here..."
+                            class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-[#ff1e00] focus:border-[#ff1e00] focus:outline-none resize-none"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit"
+                            class="bg-[#ff1e00] hover:bg-[#cc1900] text-white font-semibold px-6 py-2 rounded-lg transition duration-300 shadow-sm">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
