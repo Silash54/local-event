@@ -13,7 +13,7 @@
                             <label for="title" class="col-sm-2 col-form-label">Title <span
                                     class="text-danger">*</span></label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" id="title" name="title" required>
+                                <input class="form-control" type="text" id="title" name="title" value="{{ old('title') }}" required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -27,14 +27,14 @@
                             <label for="location" class="col-sm-4 col-form-label">Date Location <span
                                     class="text-danger">*</span></label>
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="location" name="date_location" required>
+                                <input class="form-control" type="text" id="location" name="date_location" value="{{ old('date_location') }}" required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="price" class="col-sm-2 col-form-label">price <span
                                     class="text-danger">*</span></label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="number" id="price" name="price" required>
+                                <input class="form-control" type="number" id="price" name="price" value="{{ old('price') }}" required>
                             </div>
                         </div>
                         <div class="row mb-3">

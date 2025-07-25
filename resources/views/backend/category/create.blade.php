@@ -12,13 +12,13 @@
                         <div class="row mb-3">
                             <label for="name" class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" id="name" name="name">
+                                <input class="form-control" type="text" id="name" name="name" value="{{ old('name') }}">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="image" class="col-sm-3 col-form-label">Description <span class="text-danger">*</span></label>
                             <div class="col-sm-9">
-                                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                                <textarea name="description" id="description" cols="30" rows="10" ></textarea>
                             </div>
                         </div>
                         <div class="row mb-3">

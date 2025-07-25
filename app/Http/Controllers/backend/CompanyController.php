@@ -12,7 +12,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.company.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.company.create');
     }
 
     /**
@@ -28,7 +28,7 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**

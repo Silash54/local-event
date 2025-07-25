@@ -35,6 +35,13 @@
             <span>About Us</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link " href="{{ route('company.index') }}">
+            <i class="bi bi-building"></i>
+            <span>Company</span>
+        </a>
+    </li>
+    <hr class="text-danger">
     {{--  end  of carousel  --}}
     <li class="nav-item">
         <a class="nav-link collapsed" href="pages-register.html">
@@ -48,7 +55,7 @@
             <span>Login</span>
         </a>
     </li><!-- End Login Page Nav -->
-    <hr>
+    <hr class="text-danger fs-bold">
     <h5>From Client</h5>
     <li class="nav-item">
         <a href="">
