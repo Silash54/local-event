@@ -194,7 +194,8 @@
 
             <!-- Form Container -->
             <div class="bg-white p-6 shadow-md rounded-b-lg">
-                <form action="#" method="POST" class="space-y-5">
+                <form action="{{ route('message.sent') }}" method="POST" class="space-y-5">
+                    @csrf
                     <!-- Subject Field -->
                     <div>
                         <label for="subject" class="block mb-2 text-sm font-medium text-gray-700">Subject</label>
@@ -205,7 +206,7 @@
                     <!-- Message Field -->
                     <div>
                         <label for="message" class="block mb-2 text-sm font-medium text-gray-700">Your Message</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Write your thoughts here..."
+                        <textarea id="body" name="body" rows="6" placeholder="Write your thoughts here..."
                             class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-[#ff1e00] focus:border-[#ff1e00] focus:outline-none resize-none"></textarea>
                     </div>
 

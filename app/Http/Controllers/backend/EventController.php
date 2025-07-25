@@ -74,31 +74,31 @@ class EventController extends Controller
     }
 
 
-/**
- * Display the specified resource.
- */
-function show(string $id)
-{
-    //
-}
+    /**
+     * Display the specified resource.
+     */
+    function show(string $id)
+    {
+        //
+    }
 
-/**
- * Show the form for editing the specified resource.
- */
-public function edit(string $id)
-{
-    $event=Event::find($id);
-    $categories=Category::all();
-    return view('backend.Event.edit',compact('event','categories'));
-}
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $event = Event::find($id);
+        $categories = Category::all();
+        return view('backend.Event.edit', compact('event', 'categories'));
+    }
 
-/**
- * Update the specified resource in storage.
- */
-public function update(Request $request, string $id)
-{
-    //return $request;
-     $validate = Validator::make($request->all(), [
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //return $request;
+        $validate = Validator::make($request->all(), [
             'title' => 'required|max:30',
             'description' => 'required|max:256',
             'date_location' => 'required|string|max:255',
@@ -111,7 +111,7 @@ public function update(Request $request, string $id)
             return redirect()->back()->withErrors($validate)->withInput();
         }
 
-    $event = Event::find($id);
+        $event = Event::find($id);
         $event->title = $request->title;
         $event->description = $request->description;
         $event->date_location = $request->date_location;
@@ -127,16 +127,15 @@ public function update(Request $request, string $id)
 
         $event->save();
         return redirect()->route('event.index')->with('success', 'Event created successfully.');
+    }
 
-}
-
-/**
- * Remove the specified resource from storage.
- */
-public function destroy(string $id)
-{
-    $event=Event::find($id);
-    $event->delete();
-    return redirect()->route('event.index')->with('success','Event delete successfully');
-}
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $event = Event::find($id);
+        $event->delete();
+        return redirect()->route('event.index')->with('success', 'Event delete successfully');
+    }
 }

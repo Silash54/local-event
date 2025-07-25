@@ -6,6 +6,8 @@ use App\Http\Controllers\backend\CompanyController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\EventController;
 use App\Http\Controllers\backend\GalleryController;
+use App\Http\Controllers\backend\messageController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\front\AuthController;
 use App\Http\Controllers\front\PageController;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +17,8 @@ Route::prefix('auth')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::get('/register', [AuthController::class, 'register'])->name('register');
 });
+Route::post('message-post',[messageController::class,'messageSave'])->name('message.sent');
+Route::get('sent-mail',[EmailController::class,'NotificationMail']);
 //Backend dashboard
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
