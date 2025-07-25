@@ -1,11 +1,12 @@
 @extends('backend.layout.app')
-
 @section('content')
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Carousel</h5>
+            @include('message.message')
+            @if ($carousels->count()<3)
             <a class="btn btn-primary mb-3" href="{{ route('carousel.create') }}">Add Carousel</a>
-
+            @endif
             @if ($carousels->count())
                 <table class="table table-hover">
                     <thead>

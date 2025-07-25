@@ -25,7 +25,13 @@ class CarouselController extends Controller
      */
     public function create()
     {
+        $totalCarousel=Carousel::count();
+        if($totalCarousel<3)
+        {
         return view('backend.carousel.create');
+        }else{
+            return redirect()->route('carousel.index')->with('error','You are Not allow to add more then 3 images');
+        }
     }
 
     /**
