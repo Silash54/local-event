@@ -100,67 +100,28 @@
                 <hr>
                 <!-- Responsive Grid -->
                 <div
-                    class="image-section grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 place-items-center justify-center items-center py-4">
-                    <!-- Card Start -->
-                    <div class="max-w-xs w-full rounded-2xl overflow-hidden shadow-lg bg-white">
-                        <img class="h-60 w-full object-cover rounded-md shadow-lg" src="{{ asset('images/1751030578.jpg') }}"
-                            alt="">
-                        <div class="p-4 flex justify-between items-center">
-                            <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
-                            <div class="flex flex-col gap-1 items-center">
-                                <span>345</span>
-                                <a href="#">
-                                    <i
-                                        class="fa-solid fa-heart text-sm text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
-                                </a>
+                    class="image-section grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 place-items-center justify-center items-center py-4">
+                    @if ($galleries->isNotEmpty())
+                        @foreach ($galleries as $gallery)
+                            <!-- Card Start -->
+                            <div class="max-w-xs w-full rounded-2xl overflow-hidden shadow-lg bg-white">
+                                <img class="h-60 w-full object-cover rounded-md shadow-lg"
+                                    src="{{ asset($gallery->image) }}" alt="">
+                                <div class="p-4 flex justify-between items-center">
+                                    <h5 class="text-sm font-semibold text-gray-500">{{ $gallery->caption }}</h5>
+                                    <div class="flex flex-col gap-1 items-center">
+                                        <span>345</span>
+                                        <a href="#">
+                                            <i
+                                                class="fa-solid fa-heart text-sm text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Repeat for other cards -->
-                    <div class="max-w-xs w-full rounded-2xl overflow-hidden shadow-lg bg-white">
-                        <img class="h-60 w-full object-cover rounded-md shadow-lg" src="/images/1751030558.jpg"
-                            alt="">
-                        <div class="p-4 flex justify-between items-center">
-                            <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
-                            <div class="flex flex-col gap-1 items-center">
-                                <span>345</span>
-                                <a href="#">
-                                    <i
-                                        class="fa-solid fa-heart text-sm text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="max-w-xs w-full rounded-2xl overflow-hidden shadow-lg bg-white">
-                        <img class="h-60 w-full object-cover rounded-md shadow-lg" src="/images/1751032036.jpg"
-                            alt="">
-                        <div class="p-4 flex justify-between items-center">
-                            <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
-                            <div>
-                                <a href="#">
-                                    <i
-                                        class="fa-solid fa-heart text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="max-w-xs w-full rounded-2xl overflow-hidden shadow-lg bg-white">
-                        <img class="h-60 w-full object-cover rounded-md shadow-lg" src="/images/1751032036.jpg"
-                            alt="">
-                        <div class="p-4 flex justify-between items-center">
-                            <h5 class="text-sm font-semibold text-gray-500">Beautiful Sunset</h5>
-                            <div class="flex flex-col gap-1 items-center">
-                                <span>345</span>
-                                <a href="#">
-                                    <i
-                                        class="fa-solid fa-heart text-sm text-white bg-red-400 p-2 rounded-full hover:bg-red-600"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card End -->
+                            <!-- Card End -->
+                        @endforeach
+                    @endif
                 </div>
-
                 <!-- Footer -->
                 <div class="gallery-footer bg-[#99241c] text-white mt-4 py-4">
                     <h2 class="uppercase text-center text-lg">Start Your Journey with Us</h2>

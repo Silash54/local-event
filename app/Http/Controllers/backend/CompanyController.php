@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CompanyController extends Controller
 {
@@ -12,7 +14,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view('backend.company.index');
+        
+        $company=company::first();
+        return view('backend.company.index',compact('company'));
     }
 
     /**
@@ -28,7 +32,32 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validate=Validator::make($request->all(),[
+            'name'=>'required',
+            'email'=>'required|email',
+            'telephone'=>'required|numeric',
+            'address'=>'required|',
+            'facebook'=>'required|url',
+            'twitter'=>'required',
+            'tiktok'=>'required',
+        ]);
+        if($validate->fails())
+        {
+            return response()->json([
+                'status'=>false,
+                'message'=>$validate->errors()
+            ]);
+        }
+        $createCompany=company::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'address'=>$request->address,
+            'telephone'=>$request->telephone,
+            'facebook'=>$request->facebook,
+            'twitter'=>$request->twitter,
+            'tiktok'=>$request->tiktok,
+        ]);
+        return redirect()->route('company.index')->with('success','New Company created successfully');
     }
 
     /**

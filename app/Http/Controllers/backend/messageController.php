@@ -28,4 +28,10 @@ class messageController extends Controller
     ]);
     return redirect()->route('dashboard')->with('success','Message sent Successfully');
     }
+
+    public function showMessage()
+    {
+        $showMessage=message::first();
+        return view('backend.message.message',compact('showMessage'));
+    }
 }

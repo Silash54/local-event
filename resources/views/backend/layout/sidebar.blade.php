@@ -58,7 +58,7 @@
     <hr class="text-danger fs-bold">
     <h5>From Client</h5>
     <li class="nav-item">
-        <a href="">
+        <a href="{{ route('message.show') }}">
             <i class="bi bi-message"></i>
             <span>Message</span>
         </a>

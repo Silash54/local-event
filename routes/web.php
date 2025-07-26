@@ -17,8 +17,10 @@ Route::prefix('auth')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::get('/register', [AuthController::class, 'register'])->name('register');
 });
+//mail
 Route::post('message-post',[messageController::class,'messageSave'])->name('message.sent');
 Route::get('sent-mail',[EmailController::class,'NotificationMail']);
+
 //Backend dashboard
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -27,6 +29,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('/event',EventController::class)->names('event');
     Route::resource('/gallery',GalleryController::class)->names('gallery');
     Route::resource('/company',CompanyController::class)->names('company');
+    Route::get('show-message',[messageController::class,'showMessage'])->name('message.show');
 });
 //frontend
 Route::get('/', [PageController::class, 'home'])->name('home');
