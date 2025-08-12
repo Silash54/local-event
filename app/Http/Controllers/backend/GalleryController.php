@@ -40,7 +40,6 @@ class GalleryController extends Controller
         $validateData=Validator::make($request->all(),[
             'image'=>'required',
             'caption'=>'required',
-            'event_id'=>'required'
         ]);
         if($validateData->fails())
         {
@@ -51,7 +50,6 @@ class GalleryController extends Controller
         }
         $gallery=new Gallery();
         $gallery->caption=$request->caption;
-        $gallery->event_id=$request->event_id;
         if($request->has('image'))
         {
             $file = $request->image;

@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 //Auth Controller
 Route::prefix('auth')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login',[AuthController::class,'loginPost'])->name('loginPost');
     Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/register',[AuthController::class,'registerPost'])->name('registerPost');
 });
 //mail
 Route::post('message-post',[messageController::class,'messageSave'])->name('message.sent');
